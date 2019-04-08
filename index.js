@@ -49,19 +49,18 @@ app.post("/webhook", function (request, response, next) {
             persons: persons,
             email: email
         }
-        console.log("data is :" , data)
-
         var saveData = new model(data);
         saveData.save((err, mydata) => {
             if (err) {
-                console.log("error is:" ,err);
+                console.log("error is:", err);
                 agent.add(`Error while writing on database`);
             } else {
                 agent.add(`${name} Your request is proceeded to concern department.
                 We'll contact you on this email ${email} Thanks for choosing our Hotel.`);
-                console.log("data is",mydata)
+                console.log("data is", mydata)
             }
         });
+        console.log("data of :", data)
     }
     let intentMap = new Map();
     intentMap.set("Default Welcome Intent", welcome);
