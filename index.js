@@ -25,7 +25,7 @@ mongoose.connection.on("disconnected", () => {
 var userDetail = new mongoose.Schema(
     {
         name: { type: String, required: true },
-        persons: { type: String, required: true },
+        persons: { type: Number, required: true },
         email: { type: String, required: true }
     },
     { collection: "userData" }
@@ -51,10 +51,10 @@ app.post("/webhook", function (request, response, next) {
         }
         var saveData = new model(data);
         saveData.save((err, mydata) => {
-            try {
+            if (err) {
                 console.log("error is:", err);
                 agent.add(`Error while writing on database`);
-            } catch(err) {
+            } else {
                 agent.add(`${name} Your request is proceeded to concern department.
                 We'll contact you on this email ${email} Thanks for choosing our Hotel.`);
                 console.log("data is", mydata)
