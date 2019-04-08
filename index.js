@@ -35,7 +35,7 @@ var model = new mongoose.model("userData", userDetail);
 app.post("/webhook", function (request, response, next) {
     // const _agent = new WebhookClient({ request: request, response: response });
 
-    var intent = request.body.intent.displayname
+    var intent = request.body.queryResult.intent.displayname
     switch (intent) {
         case 'Booking':
 
