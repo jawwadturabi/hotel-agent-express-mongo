@@ -51,10 +51,10 @@ app.post("/webhook", function (request, response, next) {
         }
         var saveData = new model(data);
         saveData.save((err, mydata) => {
-            if (err) {
+            try {
                 console.log("error is:", err);
                 agent.add(`Error while writing on database`);
-            } else {
+            } catch(err) {
                 agent.add(`${name} Your request is proceeded to concern department.
                 We'll contact you on this email ${email} Thanks for choosing our Hotel.`);
                 console.log("data is", mydata)
