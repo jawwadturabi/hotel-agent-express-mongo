@@ -67,6 +67,6 @@ app.post("/", function (request, response, next) {
 
     _agent.handleRequest(intentMap);
 });
-app.listen(8088, function () {
+app.listen(process.env.PORT || 8088, function () {
     console.log("app is running in 3000");
 })
