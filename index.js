@@ -52,7 +52,7 @@ app.post("/webhook", function (request, response, next) {
         var saveData = new model(data);
         saveData.save((err, mydata) => {
             if (err) {
-                console.log(err);
+                console.log("error is:" ,err);
                 agent.add(`Error while writing on database`);
             } else {
                 agent.add(`${name} Your request is proceeded to concern department.
