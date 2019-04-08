@@ -25,7 +25,7 @@ mongoose.connection.on("disconnected", () => {
 var userDetail = new mongoose.Schema(
     {
         name: { type: String, required: true },
-        persons: { type: Number, required: true },
+        persons: { type: String, required: true },
         email: { type: String, required: true }
     },
     { collection: "userData" }
@@ -43,11 +43,13 @@ app.post("/webhook", function (request, response, next) {
         const name = agent.parameters.name;
         const persons = agent.parameters.persons;
         const email = agent.parameters.email;
+        console.log(name, persons, email);
         var data = {
             name: name,
             persons: persons,
             email: email
         }
+        console.log("data is :" , data)
 
         var saveData = new model(data);
         saveData.save((err, mydata) => {
