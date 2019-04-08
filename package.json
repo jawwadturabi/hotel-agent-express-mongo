@@ -1,0 +1,19 @@
+{
+  "name": "hotel-agent-ts-mongo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Muhammad Jawwad Turabi",
+  "license": "ISC",
+  "dependencies": {
+    "actions-on-google": "^2.6.0",
+    "body-parser": "^1.18.3",
+    "dialogflow-fulfillment": "^0.6.1",
+    "express": "^4.16.4",
+    "heroku": "^7.22.8",
+    "mongoose": "^5.4.21"
+  }
+}
