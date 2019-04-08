@@ -64,7 +64,7 @@ app.post("/webhook", function (request, response, next) {
     let intentMap = new Map();
     intentMap.set("Default Welcome Intent", welcome);
     intentMap.set("Booking", Booking);
-    intentMap.set("Complaint",complaint);
+    // intentMap.set("Complaint",complaint);
 
     _agent.handleRequest(intentMap);
 });
