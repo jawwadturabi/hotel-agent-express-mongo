@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const { WebhookClient } = require("dialogflow-fulfillment");
 const app = express().use(bodyParser.json());
 const dburi = "mongodb+srv://author:author123@cluster0-geoiq.mongodb.net/test?retryWrites=true";
+process.env.DEBUG = "dialogflow:debug";
 
 mongoose.connect(dburi, { useNewUrlParser: true }).catch(err => {
     console.log("error occured", err);
@@ -31,7 +32,7 @@ var userDetail = new mongoose.Schema(
 );
 var model = new mongoose.model("userData", userDetail);
 
-app.post("/", function (request, response, next) {
+app.post("/webhook", function (request, response, next) {
     const _agent = new WebhookClient({ request: request, response: response });
 
     function welcome(agent) {
